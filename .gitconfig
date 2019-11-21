@@ -1,0 +1,9 @@
+[user]
+	email = arrrght@gmail.com
+	name = a3r
+
+[alias]
+	co = checkout
+	s  = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
