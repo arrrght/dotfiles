@@ -1,3 +1,5 @@
+set backspace=indent,eol,start
+
 nnoremap H <NOP>
 nnoremap L <NOP>
 nnoremap M <NOP>
@@ -20,8 +22,8 @@ au BufRead,BufNewFile *.j2 set filetype=jinja
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:rust_cargo_check_tests = 1
+" 
+" let g:rust_cargo_check_tests = 1
 
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
