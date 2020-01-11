@@ -464,10 +464,10 @@ live_config_reload: false
 #   - (macOS) /bin/bash --login
 #   - (Linux) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#  - --login
+shell:
+  program: /usr/local/bin/tmux
+  args:
+  - -u
 
 # Startup directory
 #
@@ -613,6 +613,8 @@ key_bindings:
   #- { key: C,        mods: Control, action: Copy                  }
   #- { key: C,        mods: Control|Shift, chars: "\x03"           }
   #- { key: K,        mods: Control, chars: "\x03"                 }
+  - { key: LBracket, mods: Command, chars: "\x02\x70"             }
+  - { key: RBracket, mods: Command, chars: "\x02\x6e"             }
   - { key: N,        mods: Command, chars: "\x02\x6e"             }
   - { key: N,        mods: Command|Shift, chars: "\x02\x70"       }
     #- { key: {,        mods: Command|Shift, chars: "\x02\x70"       }
