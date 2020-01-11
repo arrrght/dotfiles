@@ -613,8 +613,8 @@ key_bindings:
   #- { key: C,        mods: Control, action: Copy                  }
   #- { key: C,        mods: Control|Shift, chars: "\x03"           }
   #- { key: K,        mods: Control, chars: "\x03"                 }
-  - { key: LBracket, mods: Command, chars: "\x02\x70"             }
-  - { key: RBracket, mods: Command, chars: "\x02\x6e"             }
+  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70"             }
+  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e"             }
   - { key: N,        mods: Command, chars: "\x02\x6e"             }
   - { key: N,        mods: Command|Shift, chars: "\x02\x70"       }
     #- { key: {,        mods: Command|Shift, chars: "\x02\x70"       }
