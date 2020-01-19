@@ -468,6 +468,7 @@ shell:
   program: /usr/local/bin/tmux
   args:
   - -u
+  - attach
 
 # Startup directory
 #
