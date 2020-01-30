@@ -465,10 +465,17 @@ live_config_reload: false
 #   - (Linux) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/local/bin/tmux
+  program: /usr/local/bin/bash
   args:
+  - -c
+  - /usr/local/bin/tmux
   - -u
   - attach
+#shell:
+#  program: /usr/local/bin/tmux
+#  args:
+#  - -u
+#  - attach
 
 # Startup directory
 #
