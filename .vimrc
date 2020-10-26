@@ -1,6 +1,6 @@
-" https://github.com/junegunn/vim-plug
+" VimPLug https://github.com/junegunn/vim-plug {{{
 call plug#begin()
-Plug 'Raimondi/delimitMate'
+Plug 'pedrohdz/vim-yaml-folds'
 Plug 'vim-airline/vim-airline'
 Plug 'tomtom/tcomment_vim'
 Plug 'andrewstuart/vim-kubernetes'
@@ -22,29 +22,19 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 " after changes run :PlugInstall
+" }}}
 
 set backspace=indent,eol,start
 set encoding=UTF-8
-
-" <Leader> & <LocalLeader> mapping {{{
-
-let mapleader='\'
-let maplocalleader= ' '
-
-" }}}
-
 
 " Open NERDTree automatically when no files
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" show hidden files on NERDTree by default
-let NERDTreeShowHidden=1
-
 nnoremap H <NOP>
 nnoremap L <NOP>
 nnoremap M <NOP>
-set clipboard^=autoselect
+set clipboard^=autoselect,unnamed,unnamedplus
 
 " Save as root
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
@@ -61,7 +51,13 @@ set softtabstop=2              " a soft-tab of four spaces
 set autoindent                 " set on the auto-indent
 set smarttab
 
+" fols open all for yaml
+au FileType yaml normal zR
+
 colorscheme gruvbox
+
+let mapleader='\'
+let maplocalleader= ' '
 
 " Ansible jinja
 au BufRead,BufNewFile *.j2 set filetype=jinja
@@ -82,7 +78,6 @@ set statusline+=%{FugitiveStatusline()}
 set foldenable
 set foldmethod=marker
 
-" Plugins {{{
 " Airline {{{
 " set noshowmode
 
@@ -114,11 +109,6 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-
-" }}}
-" delimitmate {{{
-
-let delimitMate_expand_space = 1
 
 " }}}
 " Gitv {{{
@@ -176,8 +166,8 @@ map <Leader><C-k> <Plug>(easymotion-k)
 
 " }}}
 " NERDTree {{{
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" let g:NERDTreeDirArrowExpandable = ''
-" let g:NERDTreeDirArrowCollapsible = ''
-" }}}
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" show hidden files on NERDTree by default
+let NERDTreeShowHidden=1
 " }}}
