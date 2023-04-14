@@ -1,9 +1,59 @@
-[user]
-	email = arrrght@gmail.com
-	name = a3r
+[url "git@gitlab.ms4.work:"]
+  insteadOf = https://gitlab.ms4.work/
+
+[includeIf "gitdir:/Users/a3r/beton/"] 
+  path = .gitconfig-personal
+
+[includeIf "gitdir:/Users/a3r/my/"] 
+  path = .gitconfig-personal
+
+[includeIf "gitdir:/Users/a3r/ms/"] 
+  path = .gitconfig-motorsport
+
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
 
 [alias]
 	co = checkout
 	s  = status
 	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+[core]
+	excludesfile = /Users/a3r/.gitignore_global
+	editor = /usr/bin/vim
+  pager = delta
+
+[diff "sopsdiffer"]
+  textconv = sops -d
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /private/var/folders/r_/n9xcgl4d1zl91x223sdc4cr40000gn/T/AppTranslocation/81DD3B34-AAB8-4523-9655-4FA2526EE005/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[fetch]
+	prune = false
+[diff]
+	external = difft

@@ -50,7 +50,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -61,7 +61,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Windowed
+  startup_mode: Maximized
 
   # Window title
   #title: Alacritty
@@ -88,7 +88,7 @@ scrolling:
   #faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: false
+  #auto_scroll: false
 
 # Spaces per Tab (changes require restart)
 #
@@ -97,7 +97,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 4
+#tabspaces: 4
 
 # Font configuration (changes require restart)
 font:
@@ -367,7 +367,7 @@ colors: *tango
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
@@ -406,7 +406,7 @@ mouse:
   triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  hide_when_typing: true
+  hide_when_typing: false
 
   url:
     # URL launcher
@@ -437,7 +437,7 @@ selection:
   save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
+#dynamic_title: true
 
 cursor:
   # Cursor style
@@ -465,17 +465,18 @@ live_config_reload: false
 #   - (Linux) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/local/bin/bash
+  program: /bin/bash
   args:
   - -c
-  - /usr/local/bin/tmux
+  - /opt/homebrew/bin/tmux
   - -u
   - attach
-#shell:
-#  program: /usr/local/bin/tmux
-#  args:
-#  - -u
-#  - attach
+
+# shell:
+#   program: /Users/a3r/.hb/bin/tmux
+#   args:
+#   - -u
+#   - attach
 
 # Startup directory
 #
